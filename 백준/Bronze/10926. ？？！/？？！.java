@@ -4,6 +4,5 @@ class Main {
         Scanner sc = new Scanner(System.in) ;   
         String a = sc.nextLine();
         System.out.println(a+"??!");
-
     }
 }
