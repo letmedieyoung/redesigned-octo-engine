@@ -1,0 +1,16 @@
+/*
+1. 년, 월, 성별 별로 상품을 구매한 회원수를 집계.
+2. 결과는 년, 월, 성별을 기준으로 오름차순 정렬. 성별 정보가 없는 경우 결과에서 제외할 것.
+*/
+SELECT
+    YEAR(SALES_DATE) YEAR,
+    MONTH(SALES_DATE) MONTH,
+    GENDER,
+    COUNT(DISTINCT UI.USER_ID) AS USERS
+FROM
+    USER_INFO AS UI
+INNER JOIN
+    ONLINE_SALE AS OS ON UI.USER_ID = OS.USER_ID
+WHERE GENDER IS NOT NULL
+GROUP BY YEAR, MONTH, GENDER
+ORDER BY YEAR, MONTH, GENDER;
